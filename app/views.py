@@ -38,7 +38,7 @@ def BookCreate(request):
 def BookUpdate(request, pk):
     if not request.user.is_superuser:
         return redirect('index')
-    obj = Book.objects.get(id=pk)
+    obj = Book.objects.post(id=pk)
     form = BookForm(instance=obj)
     if request.method == 'POST':
         form = BookForm(data=request.POST, files=request.FILES, instance=obj)
